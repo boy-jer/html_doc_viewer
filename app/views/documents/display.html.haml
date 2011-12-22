@@ -6,15 +6,16 @@
     #wrapper
       #toolbar
         %ul
+          %span
+            Jump to Page:
           %li
-            %span Jump to Page:
             %select{:id => 'page_select', :url => "#{fetch_documents_url}?fetch_url=#{CONVERSION_SERVER}/#{@loc}/#{@doc_name}", :page_count => @pages}
               - for p in (1..@pages)
                 %option
                   = "#{p}"  
           %li
             = link_to image_tag("prev_page.png", :id => 'prev_page', :size => '30x30'), 'javascript:void'
-            %span
+          %span
             Navigate
           %li
             = link_to image_tag("next_page.png", :id => 'next_page', :size => '30x30'), 'javascript:void'
@@ -24,8 +25,8 @@
             Zoom
           %li
             = link_to image_tag("zoom_out.png", :id => 'zoomout', :size => '30x30'), 'javascript:void'
-            %span{:id => 'link_back'}
-              = link_to 'Upload another document', root_url
+            %span#link_back
+              = link_to 'Upload a new document', root_url
       #doc_container
         #document{:class => "zoom_3"}
 

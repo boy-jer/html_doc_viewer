@@ -64,24 +64,6 @@ $.easing.esoincub = function(x, t, b, c, d) {
 
 /********page jump*********/
   
-
-	//   $('#page_select').change(function() {
-	// var url = $("#page_select option:selected").attr('value');
-	// retrievePage(url);
-	//   });
-	// 
-	//   $('#prev_page').click(function() {
-	// var prev = $("#page_select option:selected").prev('option');
-	// var url = prev.attr('value');
-	//     retrievePageAndSelect(url);
-	//   });
-	// 
-	//   $('#next_page').click(function() {
-	// var next = $("#page_select option:selected").next('option');
-	// var url = next.attr('value');
-	//     retrievePageAndSelect(url);
-	//   }); 
-
  /********zoom********/ 
 
 $('#zoomin').on('click',function() {
@@ -107,6 +89,8 @@ $('#zoomout').on('click',function() {
 		return false;
 	}
   });
+
+ /********zoom********/
 
 });
 
