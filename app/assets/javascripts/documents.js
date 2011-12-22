@@ -91,6 +91,21 @@ $('#zoomout').on('click',function() {
   });
 
  /********zoom********/
+ 
+ 
+/*************update the DDL based on page Scroll*********************/
+
+$("#doc_container").on("scroll" , function(){
+$(".page:in-viewport").each(function(){
+var buffer=$(this).attr("id");
+var selectChange =$.trim(buffer).charAt(5)
+$("#page_select").val(selectChange)
+});
+});
+
+/*************update the DDL based on page Scroll*********************/
+ 
+ 
 
 });
 
