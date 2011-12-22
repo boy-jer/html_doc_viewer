@@ -1,5 +1,6 @@
 .bundle
 log/*.log
+public/assets/*
 tmp/
 .sass-cache/
 .DS_Store
