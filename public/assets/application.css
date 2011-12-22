@@ -116,10 +116,10 @@ body #header {
   background: #F2F2F2;
   padding: 0px 10px;
   margin: 10px 10px 0;
+  border: solid 1px #E1EAE6;
   -moz-border-radius: 10px;
   border-radius: 10px;
   position: relative;
-  border-bottom: 1px solid #999;
   position: relative;
   z-index: 2000;
 }
@@ -165,6 +165,7 @@ body #exception {
 }
 /* line 1, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #result {
+  text-align: center;
   width: 50%;
   border: solid 3px #e1eae6;
   -moz-border-radius: 10px;
@@ -174,29 +175,29 @@ body #exception {
   margin-top: 50px;
   padding: 15px;
 }
-/* line 10, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 11, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #result h2 {
   font-size: 2.5em;
   font-weight: bold;
 }
-/* line 12, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 13, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #result h3 {
   font-size: 1.75em;
 }
 
-/* line 16, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 17, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #doc_display #exception {
   margin-top: 15px;
   padding-top: 10px;
   font-size: 1.75em;
   color: red;
 }
-/* line 22, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 23, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #doc_display #wrapper {
   width: 99%;
   margin: 0 0;
 }
-/* line 25, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 26, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #doc_display #wrapper #toolbar {
   z-index: 2000;
   position: relative;
@@ -208,20 +209,20 @@ body #exception {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
 }
-/* line 35, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 36, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #doc_display #wrapper #toolbar span {
   font-size: 1.5em;
 }
-/* line 36, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 37, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #doc_display #wrapper #toolbar li {
   display: inline;
   margin: 10px;
 }
-/* line 39, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 40, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #doc_display #wrapper #toolbar li img {
   vertical-align: bottom;
 }
-/* line 40, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 41, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #doc_display #wrapper #toolbar li #link_back {
   float: right;
   background-color: #69C4F9;
@@ -235,12 +236,12 @@ body #exception {
   -moz-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 41, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 42, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #doc_display #wrapper #toolbar li #link_back a {
   text-decoration: none;
   color: #FFF;
 }
-/* line 57, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 58, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #doc_display #wrapper #doc_container {
   overflow-y: auto;
   position: absolute;
@@ -252,11 +253,11 @@ body #exception {
   margin: 0 auto;
   background-color: #666;
 }
-/* line 67, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 68, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #doc_display #wrapper #doc_container #document {
   width: 90%;
 }
-/* line 69, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 70, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #doc_display #wrapper #doc_container #document .page {
   padding: 5px 10px;
   margin: 20px 0;
@@ -266,8 +267,9 @@ body #exception {
   -moz-box-shadow: 0 0 15px #333;
 }
 
-/* line 83, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 84, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #upload_form {
+  text-align: center;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
@@ -281,11 +283,11 @@ body #exception {
   -moz-border-radius: 10px;
   border-radius: 10px;
 }
-/* line 96, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 98, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #upload_form input#document_file {
   width: 300px;
 }
-/* line 99, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 101, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #upload_form input {
   color: #606060;
   padding-left: 20px;
@@ -295,27 +297,27 @@ body #exception {
   font-size: 1.0em;
 }
 
-/* line 109, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 111, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 #page_sink {
   display: none;
 }
 
-/* line 113, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 115, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 .float_left {
   float: left;
 }
 
-/* line 114, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 116, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 .float_right {
   float: right;
 }
 
-/* line 115, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 117, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 .clear {
   overflow: hidden;
 }
 
-/* line 117, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 119, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 .zoom_1 {
   -moz-transform: scale(0.5);
   -webkit-transform: scale(0.5);
@@ -324,7 +326,7 @@ body #exception {
   margin: -60% auto 0 !important;
 }
 
-/* line 119, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 121, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 .zoom_2 {
   -moz-transform: scale(0.57);
   -webkit-transform: scale(0.75);
@@ -333,7 +335,7 @@ body #exception {
   margin: -28% auto 0 !important;
 }
 
-/* line 121, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 123, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 .zoom_3 {
   -moz-transform: scale(1);
   -webkit-transform: scale(1);
@@ -346,7 +348,7 @@ body #exception {
   margin: 65px auto;
 }
 
-/* line 123, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 125, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 .zoom_4 {
   -moz-transform: scale(1.5);
   -webkit-transform: scale(1.5);
@@ -355,7 +357,7 @@ body #exception {
   margin: 75em 0 0 21em !important;
 }
 
-/* line 125, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
+/* line 127, /Users/karthik/Projects/html_doc_viewer/app/assets/stylesheets/documents.css.scss */
 .zoom_5 {
   -moz-transform: scale(1.7);
   -webkit-transform: scale(1.7);
