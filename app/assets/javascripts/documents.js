@@ -13,7 +13,6 @@ $(document).ready(function() {
     }
   }
   
-  
  /********page nav*********/ 
 
 $("#next_page").on('click',function(){
@@ -104,15 +103,12 @@ $("#page_select").val(selectChange)
 });
 
 /*************update the DDL based on page Scroll*********************/
- 
- 
-
 });
 
 // loads the content for the specific page using the passed url
 var retrievePage = function (page_url, page_num) {
 	var current_page = 'page_'+page_num
-	$('#document').append("<div class='page' id='"+current_page+"'></div>");
+	$('#document').append("<div class='page' id='"+current_page+"'><div class='load'>Loading...</div><img alt='loader' height='75' src='/assets/ajax_spinner.gif' width='75'></img></div>");
 	$('#'+current_page).load(page_url, function() {
 	   $('#'+current_page).show();
 	});	
