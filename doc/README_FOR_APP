@@ -6,3 +6,5 @@ ghostscript
 freetype
 poppler-utils
 pdftohtml
+
+The viewer can be played around with at http://docviewer.heroku.com/
