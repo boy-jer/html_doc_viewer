@@ -25,11 +25,11 @@
             Zoom
           %li
             = link_to image_tag("zoom_out.png", :id => 'zoomout', :size => '30x30'), 'javascript:void'
-            %li
+          %li
             = link_to image_tag("fullscreen.png", :id => 'fullscreen', :size => '30x30'), 'javascript:void'
-            %li
-              %span#link_back
-                = link_to 'Upload a new document', root_url
+          %li
+            %span#link_back
+              = link_to 'Upload a new document', root_url
       #doc_container
         #document{:class => "zoom_3"}
 
