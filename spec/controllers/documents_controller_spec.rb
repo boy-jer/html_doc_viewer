@@ -33,6 +33,7 @@ describe DocumentsController do
     assigns(:doc_name).should == 'test'
     assigns(:pages).should == 4
     assigns(:loc).should == '1ef18bea-2d6f-408e-a742-3ddbd8c1d69e'
+    assigns(:url).should == "#{fetch_documents_url}?fetch_url=#{CONVERSION_SERVER}/1ef18bea-2d6f-408e-a742-3ddbd8c1d69e/test"
   end
   
   it 'return the document display page with exception' do
@@ -43,6 +44,16 @@ describe DocumentsController do
     assigns(:doc_name).should == 'test'
     assigns(:pages).should == 0
     assigns(:loc).should == '1ef18bea-2d6f-408e-a742-3ddbd8c1d69e'
+    assigns(:url).should == "#{fetch_documents_url}?fetch_url=#{CONVERSION_SERVER}/1ef18bea-2d6f-408e-a742-3ddbd8c1d69e/test"
+  end
+  
+  it 'return the document display page with the stubbed viewer' do
+    get :display, {:doc_name => 'seemework', :pages => '2', :stub => true}
+    response.should be_success
+    response.should render_template(:display)
+    assigns(:doc_name).should == 'seemework'
+    assigns(:pages).should == 2
+    assigns(:url).should == "#{root_url}seemework"
   end
   
   it 'fetches the page using the URL with success' do

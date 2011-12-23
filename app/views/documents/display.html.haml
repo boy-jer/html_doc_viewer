@@ -1,5 +1,5 @@
 #doc_display
-  - if @loc.blank? || @pages == 0 || @pages.blank?
+  - if @pages == 0 || @pages.blank?
     #exception
       Sorry. There is a problem displaying this document!
   - else
@@ -9,7 +9,7 @@
           %span
             Jump to Page:
           %li
-            %select{:id => 'page_select', :url => "#{fetch_documents_url}?fetch_url=#{CONVERSION_SERVER}/#{@loc}/#{@doc_name}", :page_count => @pages}
+            %select{:id => 'page_select', :url => @url, :page_count => @pages}
               - for p in (1..@pages)
                 %option
                   = "#{p}"  

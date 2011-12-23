@@ -33,36 +33,29 @@
 
 
 body {
-  height: 100%;
-  font-family: Gill Sans, Verdana;
-
+  
+  line-height:1.6em;font-family:"Lucida Grande",Tahoma,Arial,sans-serif;font-size:1.2em;
   #container {
-    margin: 0 30px;
-    background: #FFF;
-    height: 100%;
+   
   }
 
   #header {
     background: #F2F2F2;
     padding: 7px;
-    margin: 10px 10px 0;
+    margin:0;
     border: solid 1px #E1EAE6;
-    -moz-border-radius: 10px;
-    border-radius: 10px;
-    position:relative;
     position:relative;
     z-index:2000;
-    h1{font-size:2.5em;margin:0 0.1em;line-height:1.5em;text-align:center}
+    h1{font-size:2.5em;margin:0 0.1em;line-height:1.5em;text-align:center;font-family:gerogia;font-weight:400;letter-spacing:-1px}
   }
 
   #content {
-    width:100%;
-    height: 70%;
+  
     clear: left;
     #flash_bar {
       font-size: 1.25em;
       color: red;
-    margin:5px;
+    
     }
   }
 
@@ -84,6 +77,12 @@ body {
     padding-top: 10px;
     font-size: 1.75em; 
     color: red;
+    text-align: center;
+  }
+  
+  #viewer_link {
+    margin-top: 15px;
+    font-size: 1.5em; 
     text-align: center;
   }
 }

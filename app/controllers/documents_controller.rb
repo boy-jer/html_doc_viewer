@@ -48,6 +48,7 @@ class DocumentsController < ApplicationController
     @doc_name = params[:doc_name].gsub('.pdf', '')
     @loc = params[:loc]
     @pages = params[:pages].to_i
+    @url = params[:stub] ? "#{root_url}#{@doc_name}" : "#{fetch_documents_url}?fetch_url=#{CONVERSION_SERVER}/#{@loc}/#{@doc_name}"
   end
   
   def fetch

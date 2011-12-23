@@ -21,23 +21,20 @@
     color: red;
    }
   #wrapper { 
-    width:99%;
-    margin:0 0;
+
+    margin:0;
     #toolbar{ 
        z-index:2000;
        position:relative;
        background-color:#F2F2F2;
-       padding-left: 10px; 
-       padding-right: 10px;
-       padding-top: 5px;
-       padding-bottom: 5px;
+       padding:11px 10px 14px;
        -webkit-border-radius:5px;
        -moz-border-radius:5px;
-       span {font-size: 1.5em};
+       span{}
        li   { 
          display:inline; 
          margin: 10px;
-         img{vertical-align:bottom;}
+         img{vertical-align:bottom;position:relative;top:5px;}
          #link_back{
             a { 
               text-decoration: none;
@@ -68,6 +65,12 @@
        #document {
          width:90%;
         .page {
+          .load {
+            font-family:"Lucida Grande",Tahoma,Arial,sans-serif;
+            margin-top: 25px;
+            text-align: center;
+            font-size: 1.25em;
+          }
           padding:5px 10px;
           margin:20px 0;
           background-color:#FFF; 
