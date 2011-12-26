@@ -103,6 +103,20 @@ $("#page_select").val(selectChange)
 });
 
 /*************update the DDL based on page Scroll*********************/
+
+/******Full screen *******/
+
+$("#fullscreen").on("click",function(){
+
+  if (this.webkitRequestFullScreen){
+     document.documentElement.webkitRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);
+ }
+  else if(this.mozRequestFullScreen){ document.documentElement.mozRequestFullScreen(Element.ALLOW_KEYBOARD_INPUT);}
+  else{document.documentElement.requestFullScreen();}
+
+});
+
+
 });
 
 // loads the content for the specific page using the passed url
