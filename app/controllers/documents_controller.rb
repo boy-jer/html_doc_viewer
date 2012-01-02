@@ -3,7 +3,7 @@ class DocumentsController < ApplicationController
   layout 'application', :only => [:new, :upload, :result, :display]
   
   def new
- 
+    @service_available = begin RestClient.get(CONVERSION_SERVER) == "hello world" ? true : false rescue false end
   end
   
   def upload
