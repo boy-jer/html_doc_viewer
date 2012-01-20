@@ -8,18 +8,9 @@ HtmlDocViewer::Application.routes.draw do
       get 'display'
       get 'fetch_html'
       get 'fetch_image' #purely for testing sake
-      resources :fonts do
-        collection do
-          match '/:name' => 'fonts#show_font'
-        end
-      end
+      get 'fetch_font' #purely for testing sake
       match '/:file/:img' => 'documents#fetch_image'
-    end
-  end
-
-  resources :fonts do #purely for testing sake
-    collection do
-      get 'show_font'
+      match '/fonts/:name' => 'documents#fetch_font'
     end
   end
 

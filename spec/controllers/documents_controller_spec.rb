@@ -65,8 +65,13 @@ describe DocumentsController do
     response.should be_success
   end
   
-  it 'fetches the image by routing appropriately' do
+  it 'fetches the remote image by routing appropriately' do
     get :fetch_image, {:file => 'test2-1', :img => 'img@3456x12672w10373h4959-16dpi.jpg'}
+    response.should be_redirect
+  end
+  
+  it 'fetches the remote font by routing appropriately' do
+    get :fetch_font, {:name => 'test.woff'}
     response.should be_redirect
   end
   

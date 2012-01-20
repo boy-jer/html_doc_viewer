@@ -59,6 +59,10 @@ class DocumentsController < ApplicationController
       @resp = '' 
     end
   end
+  
+  def fetch_font
+    redirect_to "#{session[:remote_url]}fonts/#{params[:name]}"
+  end
 
   def fetch_image
     redirect_to "#{session[:remote_url]}#{params[:file]}/#{params[:img]}.jpg" 

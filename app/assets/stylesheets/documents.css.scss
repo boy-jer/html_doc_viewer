@@ -21,7 +21,6 @@
     color: red;
    }
   #wrapper { 
-
     margin:0;
     #toolbar{ 
        z-index:2000;
@@ -63,9 +62,9 @@
        margin:0 auto; 
        background-color:#666;
        #document {
-         width:90%;
-        .page {
-          .load {
+          width:75%;
+         .page {
+           .load {
             font-family:"Lucida Grande",Tahoma,Arial,sans-serif;
             margin-top: 25px;
             text-align: center;
@@ -118,8 +117,6 @@
 .float_left{float:left}
 .float_right{float:right}
 .clear{overflow:hidden}
-
-
 
 .zoom_1{-moz-transform:scale(0.5);-webkit-transform:scale(0.5);-ms-transform:scale(0.5);-o-transform:scale(0.5); margin:-34% auto 0  !important;}
 
