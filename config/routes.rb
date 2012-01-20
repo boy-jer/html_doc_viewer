@@ -6,7 +6,20 @@ HtmlDocViewer::Application.routes.draw do
       post 'upload'
       get 'result'
       get 'display'
-      get 'fetch'
+      get 'fetch_html'
+      get 'fetch_image' #purely for testing sake
+      resources :fonts do
+        collection do
+          match '/:name' => 'fonts#show_font'
+        end
+      end
+      match '/:file/:img' => 'documents#fetch_image'
+    end
+  end
+
+  resources :fonts do #purely for testing sake
+    collection do
+      get 'show_font'
     end
   end
 

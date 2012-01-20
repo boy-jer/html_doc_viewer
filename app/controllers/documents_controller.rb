@@ -48,20 +48,19 @@ class DocumentsController < ApplicationController
     @doc_name = params[:doc_name].gsub('.pdf', '')
     @loc = params[:loc]
     @pages = params[:pages].to_i
-    @url = params[:stub] ? "#{root_url}#{@doc_name}" : "#{fetch_documents_url}?fetch_url=#{CONVERSION_SERVER}/#{@loc}/#{@doc_name}"
+    @url = params[:stub] ? "#{root_url}#{@doc_name}" : "#{fetch_html_documents_url}?fetch_url=#{CONVERSION_SERVER}/#{@loc}/#{@doc_name}"
+    session[:remote_url] = "#{CONVERSION_SERVER}/#{@loc}/"   
   end
   
-  def fetch
+  def fetch_html
     begin 
       @resp = RestClient.get params[:fetch_url] 
     rescue 
       @resp = '' 
     end
   end
-  
-  private
-  
-  def clear_flash
-    flash.clear
+
+  def fetch_image
+    redirect_to "#{session[:remote_url]}#{params[:file]}/#{params[:img]}.jpg" 
   end
 end
