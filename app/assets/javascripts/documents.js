@@ -1,29 +1,21 @@
 $(document).ready(function() {	
 	
-var load_url = $('#page_select').attr('url');
+var loadUrl = $('#page_select').attr('url');
+var pageLimit=$("#page_select").attr("page_count");
 
 /* abstraction to deal with a specific page in the doc */
 var documentPage = {
-	pageUrl: null,
-	pageNum: null,
 	pageContent: null,
-	initialize: function(url, num) {
-		this.pageUrl = url;
-		this.pageNum = num;
-	},
-	loadContent: function() {
-	  $('#document').html('');
-	  $('#loader').show();
-	  var current_page = 'page_'+this.page_num;	
+	loadContent: function(page_num) {
+	  var current_page = 'page_'+page_num;	
 	  var xhReq = new XMLHttpRequest();
-	  xhReq.open("GET", this.pageUrl, true);
+	  var page_url = loadUrl + '-' + page_num + '.html';
+	  xhReq.open("GET", page_url, true);
 	  xhReq.onreadystatechange = function() {
 	   if (xhReq.readyState != 4) {
 	     return;	
 	   }
 	   this.pageContent = xhReq.responseText;
-	   $('#loader').hide	();
-	   $('#document').append("<div class='page' id='"+current_page+"'></div>");
 	   $('#'+current_page).html(this.pageContent);
 	  };
 	  xhReq.send(null);
@@ -32,14 +24,11 @@ var documentPage = {
 
 /* abstraction that handles queueing of pages for loading and rendering */
 var documentRenderer = {
-	remoteUrl: load_url,
 	pageQueue: [],
 	enqueuePage: function(page_num) {
-		var page_url = this.remoteUrl + '-' + page_num + '.html';
 		var idx = this.alreadyEnqueued(page_num);
 		if (idx === -1) {
-			documentPage.initialize(page_url, page_num);
-			documentPage.loadContent();
+			documentPage.loadContent(page_num);
 			this.pageQueue.push(documentPage);	
 		}
 		else { return; }
@@ -55,19 +44,22 @@ var documentRenderer = {
 }
 
 if ($('#page_select option:first') != undefined) {
-	// load the content for the first page
-	documentRenderer.enqueuePage(1);
+	// create page containers for all the pages in the document
+	for(var i=1;i<=pageLimit;i++) {
+	  var num = 'page_'+i;	
+	  $('#document').append("<div class='page' id='"+num+"'><div class='loader'>Loading...<img src='/assets/ajax_spinner.gif' width='50' height='50'></img></div></div>");
+	  // load the content for the first page
+	  documentRenderer.enqueuePage(i);
+	}
 };
 
 
 /* page navigation */ 
 $("#next_page").on('click',function(){
-  var pageLimit=$("#page_select").attr("page_count");
   var nextPage=parseInt($("#page_select").val())+1;
 
   if(nextPage<= pageLimit){
     var pageNumber=("#page_"+ nextPage);
-	documentRenderer.enqueuePage(nextPage);
     pageScroll(pageNumber);
     $("#page_select").val(nextPage);
   }
@@ -75,12 +67,10 @@ $("#next_page").on('click',function(){
 
 
 $("#prev_page").on('click',function(){
-  var pageLimit=$("#page_select").attr("page_count");
   var prevPage=parseInt($("#page_select").val())-1;
 
   if(prevPage !==0){
     var pageNumber=("#page_"+ prevPage);
-    documentRenderer.enqueuePage(prevPage);
     pageScroll(pageNumber);
     $("#page_select").val(prevPage);
   }
@@ -89,7 +79,6 @@ $("#prev_page").on('click',function(){
 $("#page_select").on('change',function(){ 
   var selectedVal = $(this).val();
   var pageNumber=("#page_"+selectedVal);
-  documentRenderer.enqueuePage(selectedVal);
   pageScroll(pageNumber);
 });
  
