@@ -65,6 +65,6 @@ class DocumentsController < ApplicationController
   end
 
   def fetch_image
-    redirect_to "#{session[:remote_url]}#{params[:file]}/#{params[:img]}.jpg" 
+    redirect_to "#{session[:remote_url]}#{params[:file]}/#{params[:img]}" 
   end
 end
