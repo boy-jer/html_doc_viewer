@@ -7,4 +7,4 @@ freetype
 poppler-utils
 pdftohtml
 
-The viewer can be played around with at http://docviewer.heroku.com/
+The viewer can be played around with at http://viewer-reboot.herokuapp.com/

@@ -47,7 +47,7 @@ if ($('#page_select option:first') != undefined) {
 	// create page containers for all the pages in the document
 	for(var i=1;i<=pageLimit;i++) {
 	  var num = 'page_'+i;	
-	  $('#document').append("<div class='page' id='"+num+"'><div class='loader'>Loading...<img src='/assets/ajax_spinner.gif' width='50' height='50'></img></div></div>");
+	  $('#document').append("<div class='page' id='"+num+"'><div class='loader'>Working...<img src='/assets/ajax_spinner.gif' width='50' height='50'></img></div></div>");
 	  // load the content for the first page
 	  documentRenderer.enqueuePage(i);
 	}
