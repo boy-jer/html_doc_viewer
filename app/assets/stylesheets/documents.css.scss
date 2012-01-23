@@ -61,25 +61,26 @@
        width:100%;
        margin:0 auto; 
        background-color:#666;
+       #loader {
+         margin-top: 15em;
+         text-align: center;
+         display: none;
+         font-size: 1.25em;
+         font-weight: bold;
+       }
        #document {
           width:75%;
          .page {
-           .load {
-            font-family:"Lucida Grande",Tahoma,Arial,sans-serif;
-            margin-top: 25px;
-            text-align: center;
-            font-size: 1.25em;
-          }
-          padding:5px 10px;
-          margin:20px 0;
-          background-color:#FFF; 
-          border:1px solid #666;
-          -webkit-box-shadow:0 0 15px #333;
-         -moz-box-shadow:0 0 15px #333;
+           padding:5px 10px;
+           margin:20px 0;
+           background-color:#FFF; 
+           border:1px solid #666;
+           -webkit-box-shadow:0 0 15px #333;
+          -moz-box-shadow:0 0 15px #333;
+         }
        }
      }
    }
- }
 }
 
 
