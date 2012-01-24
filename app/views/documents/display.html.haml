@@ -28,6 +28,8 @@
           %li
             = link_to image_tag("fullscreen.png", :id => 'fullscreen', :size => '30x30'), 'javascript:void'
           %li
+            = link_to image_tag("print.png", :id => 'print', :size => '30x30'), 'javascript:window.print();'
+          %li
             %span#link_back
               = link_to 'Upload a new document', root_url
       #doc_container
