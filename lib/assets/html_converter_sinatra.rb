@@ -34,6 +34,10 @@ post '/:filename' do
   end
 end
 
+get '/:dir/fonts/:file' do
+  send_file "#{params[:dir]}/fonts/#{params[:file]}"
+end
+
 get '/' do
   "hello world"
 end
