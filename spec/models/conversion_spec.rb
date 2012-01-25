@@ -11,9 +11,9 @@ describe Conversion do
     @conversion.converted?.should == @conversion.converted
   end
   
-  it 'should return the document name without extension' do
-    @conversion = Factory(:conversion, :document_name => 'test_convert.pdf')
-    @conversion.document_name_without_ext.should == 'test_convert'
+  it 'should return the stripped document name without extension' do
+    @conversion = Factory(:conversion, :document_name => 'test convert.pdf')
+    @conversion.stripped_document_name_without_ext.should == 'testconvert'
   end
   
   it 'should return the document name stripped of spaces' do

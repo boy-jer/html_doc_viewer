@@ -28,7 +28,7 @@ class ConversionsController < ApplicationController
   end
   
   def show
-    @url = "#{fetch_html_conversion_url(@conversion.id)}?fetch_url=#{CONVERSION_SERVER}/#{@conversion.location}/#{@conversion.document_name_without_ext}"
+    @url = "#{fetch_html_conversion_url(@conversion.id)}?fetch_url=#{CONVERSION_SERVER}/#{@conversion.location}/#{@conversion.stripped_document_name_without_ext}"
     session[:remote_url] = "#{CONVERSION_SERVER}/#{@conversion.location}/"   
   end
   

@@ -4,8 +4,8 @@ class Conversion < ActiveRecord::Base
   after_create :process
   alias_attribute :converted?, :converted
   
-  def document_name_without_ext
-    self.document_name.gsub('.pdf', '')
+  def stripped_document_name_without_ext
+    self.stripped_document_name.gsub('.pdf', '')
   end
   
   def stripped_document_name
