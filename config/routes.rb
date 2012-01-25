@@ -1,18 +1,18 @@
 ActionController::Routing::SEPARATORS =  %w( / ; , ? ) #hack to escape '.' (period) in the routes
 
 HtmlDocViewer::Application.routes.draw do
-  root :to => 'documents#new'
+  root :to => 'conversions#new'
   
-  resources :documents do
-    collection do
-      post 'upload'
+  resources :conversions do
+    member do
       get 'result'
-      get 'display'
       get 'fetch_html'
+    end
+    collection do
       get 'fetch_image' #purely for testing sake
       get 'fetch_font' #purely for testing sake
-      match '/fonts/:name' => 'documents#fetch_font'
-      match '/:file/:img' => 'documents#fetch_image'
+      match '/fonts/:name' => 'conversions#fetch_font'
+      match '/:file/:img' => 'conversions#fetch_image'
     end
   end
 

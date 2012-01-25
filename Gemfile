@@ -8,6 +8,7 @@ gem 'jquery-rails'
 gem 'rest-client'
 gem 'pg'
 gem 'heroku'
+gem 'resque'
 
 group :development do
   gem "rspec-rails", "~> 2.6"
@@ -23,7 +24,10 @@ group :assets do
 end
 
 group :test do
+  gem 'minitest'
   gem 'turn', :require => false
   gem "rspec-rails", "~> 2.6"
   gem 'faker', '0.3.1'
+  gem 'factory_girl_rails'
+  gem 'shoulda-matchers'
 end

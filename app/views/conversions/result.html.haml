@@ -1,0 +1,15 @@
+#result
+  - if @conversion.converted?
+    #yay_result
+      = image_tag 'yay.gif', :size => '300x250'
+      %h2 Your file was successfully uploaded and processed!
+      %br
+      %h3 
+        Click 
+        = link_to 'here', conversion_path(@conversion.id)
+        to view the uploaded file in processed form.
+  - else
+    #boo_result
+      = image_tag 'oops.jpg', :size => '300x250'
+      %h2 Sorry! There was a problem processing the file you uploaded. Please retry later.
+

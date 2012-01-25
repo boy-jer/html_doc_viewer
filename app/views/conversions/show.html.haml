@@ -1,5 +1,5 @@
 #doc_display
-  - if @pages == 0 || @pages.blank?
+  - if @conversion.num_of_pages.blank? || @conversion.num_of_pages == 0
     #exception
       Sorry. There is a problem displaying this document!
   - else
@@ -9,8 +9,8 @@
           %span
             Jump to Page:
           %li
-            %select{:id => 'page_select', :url => @url, :page_count => @pages}
-              - for p in (1..@pages)
+            %select{:id => 'page_select', :url => @url, :page_count => @conversion.num_of_pages}
+              - for p in (1..@conversion.num_of_pages)
                 %option
                   = "#{p}"  
           %li

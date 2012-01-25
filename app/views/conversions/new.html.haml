@@ -1,16 +1,18 @@
 - if @service_available 
   #upload_form
-    = form_tag '/documents/upload', :multipart => true do |f| 
+    = form_for(@conversion, :html => {:enctype => "multipart/form-data"}) do |f| 
       %h2
         CHOOSE A PDF DOCUMENT AND HIT UPLOAD!
       = file_field_tag 'document_file', :accept => 'application/pdf'
-      = submit_tag 'UPLOAD'
+      = f.submit 'Upload'
+  #conversion_archive
+  
 - else
   #exception
     Sorry. The conversion service is not available at this time! Check back later. 
   #viewer_link
     But hey! You can still see the viewer 
-    %span= link_to 'here', display_documents_path(:doc_name => 'seemework', :pages => '2', :stub => true)
+    / %span= link_to 'here', conversion_path(@conversion.id) TODO: fix this for stub viewer
     if you wish to.
 
 
