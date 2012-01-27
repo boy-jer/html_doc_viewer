@@ -30,4 +30,5 @@ group :test do
   gem 'faker', '0.3.1'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
+  gem 'resque_unit'
 end

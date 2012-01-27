@@ -3,6 +3,14 @@ require 'spec_helper'
 describe ConversionsController do
   render_views
   
+  before(:each) do
+    Resque.redis.del "queue:conversion"
+  end
+  
+  after(:each) do
+    Resque.redis.del "queue:conversion"
+  end
+  
   describe 'new' do
     it 'return a new conversion page with success when service is available' do
       RestClient.stub!(:get).and_return("hello world") if STUB_CONVERSION
@@ -82,7 +90,7 @@ describe ConversionsController do
       @test_document = fixture_file_upload('/test.pdf', 'application/pdf')
       class << @test_document #hack to simulate the file upload action
          attr_reader :tempfile
-      end
+      end   
     end
     
     it 'should not create/process a conversion without a file uploaded to the server' do
@@ -97,9 +105,9 @@ describe ConversionsController do
       post :create, {:document_file => @test_document}
       response.should be_success
       response.should render_template(:result)
+      Resque.size(:conversion).should > 0
       assigns(:conversion).should_not be_nil
       assigns(:conversion).document_name == 'test.pdf'
-      assigns(:conversion).converted?.should be_true
     end
     
     it 'should create/process a conversion without success' do
@@ -107,6 +115,7 @@ describe ConversionsController do
       post :create, {:document_file => @test_document}
       response.should be_success
       response.should render_template(:result)
+      Resque.size(:conversion).should > 0
       assigns(:conversion).should_not be_nil
       assigns(:conversion).document_name == 'test.pdf'
       assigns(:conversion).converted?.should be_false
@@ -127,9 +136,9 @@ describe ConversionsController do
         post :create, {:document_file => @test_document}
         response.should be_success
         response.should render_template(:result)
+        Resque.size(:conversion).should > 0
         assigns(:conversion).should_not be_nil
         assigns(:conversion).document_name == 'Sivasankari Ranganathan.pdf'
-        assigns(:conversion).converted?.should be_true
       end
     end
   end

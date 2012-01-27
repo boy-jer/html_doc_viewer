@@ -22,20 +22,6 @@ class Conversion < ActiveRecord::Base
       save_file.write(f.read)
     end
     save_file.close
-    # upload the file to the sinatra conversion service (TODO: delegate to bg worker eventually)
-    begin
-      conversion_response = RestClient.post "#{CONVERSION_SERVER}/#{self.stripped_document_name}", :data => File.new("#{self.document_path}")       
-      unless conversion_response.blank?
-        resp = conversion_response.split(':')
-        self.location = resp[0]
-        self.num_of_pages = resp[1].to_i
-        self.converted = true
-      else
-        self.converted = false
-      end
-    rescue Exception => ex
-      self.converted = false
-    end
-    self.save
+    Resque.enqueue(ConversionWorker, self.id) #queue a conversion worker to process the conversion
   end
 end

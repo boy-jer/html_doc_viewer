@@ -1,6 +1,16 @@
 require 'spec_helper'
 
 describe Conversion do
+  
+  before(:each) do
+    Resque.redis.del "queue:conversion"
+  end
+  
+  after(:each) do
+    Resque.redis.del "queue:conversion"
+  end
+
+  
   it {should validate_presence_of(:document_name)}
   it {should validate_presence_of(:document_path)}
   it {should validate_presence_of(:uploaded_at)}
@@ -29,14 +39,13 @@ describe Conversion do
     it 'should successfully process conversion post creation' do
       RestClient.stub!(:post).and_return('3233-12212-1:2') if STUB_CONVERSION
       @conversion = Factory(:conversion, :document_content => @file)
-      @conversion.converted?.should be_true
-      @conversion.location.should_not be_nil
-      @conversion.num_of_pages.should > 0
+      Resque.size(:conversion).should > 0
     end
     
     it 'should fail processing conversion post creation' do
       RestClient.stub!(:post).and_return(nil) if STUB_CONVERSION
       @conversion = Factory(:conversion, :document_content => @file)
+      Resque.size(:conversion).should > 0
       @conversion.converted?.should be_false
       @conversion.location.should be_nil
       @conversion.num_of_pages.should be_nil
