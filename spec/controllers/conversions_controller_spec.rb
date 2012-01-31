@@ -142,6 +142,26 @@ describe ConversionsController do
       end
     end
   end
+  
+  describe 'conversion status' do
+    before(:each) do
+      @conversion = Factory(:conversion)
+    end
+    
+    it 'should respond with complete for a successful conversion' do
+      @conversion.update_attribute(:converted, true)
+      get :conversion_status, {:id => @conversion.id}
+      response.should be_success
+      response.body.should == 'complete'
+    end
+    
+    it 'should respond with incomplete for a unsuccessful conversion' do
+      @conversion.update_attribute(:converted, nil)
+      get :conversion_status, {:id => @conversion.id}
+      response.should be_success
+      response.body.should == 'incomplete'
+    end
+  end
 end
 
 
