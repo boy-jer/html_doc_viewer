@@ -8,7 +8,7 @@ gem 'jquery-rails'
 gem 'rest-client'
 gem 'pg'
 gem 'heroku'
-gem 'resque'
+gem 'delayed_job', '~> 2.1.4'
 
 group :development do
   gem "rspec-rails", "~> 2.6"

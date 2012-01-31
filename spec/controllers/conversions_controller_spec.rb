@@ -3,14 +3,6 @@ require 'spec_helper'
 describe ConversionsController do
   render_views
   
-  before(:each) do
-    Resque.redis.del "queue:conversion"
-  end
-  
-  after(:each) do
-    Resque.redis.del "queue:conversion"
-  end
-  
   describe 'new' do
     it 'return a new conversion page with success when service is available' do
       RestClient.stub!(:get).and_return("hello world") if STUB_CONVERSION
@@ -105,7 +97,7 @@ describe ConversionsController do
       post :create, {:document_file => @test_document}
       response.should be_success
       response.should render_template(:result)
-      Resque.size(:conversion).should > 0
+      Delayed::Job.count.should > 0
       assigns(:conversion).should_not be_nil
       assigns(:conversion).document_name == 'test.pdf'
     end
@@ -115,7 +107,7 @@ describe ConversionsController do
       post :create, {:document_file => @test_document}
       response.should be_success
       response.should render_template(:result)
-      Resque.size(:conversion).should > 0
+      Delayed::Job.count.should > 0
       assigns(:conversion).should_not be_nil
       assigns(:conversion).document_name == 'test.pdf'
       assigns(:conversion).converted?.should be_false
@@ -136,7 +128,7 @@ describe ConversionsController do
         post :create, {:document_file => @test_document}
         response.should be_success
         response.should render_template(:result)
-        Resque.size(:conversion).should > 0
+        Delayed::Job.count.should > 0
         assigns(:conversion).should_not be_nil
         assigns(:conversion).document_name == 'Sivasankari Ranganathan.pdf'
       end

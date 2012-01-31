@@ -1,7 +1,6 @@
-# worker to run the pdf to html conversion in the background
-class ConversionWorker
-  @queue = :conversion
-  def self.perform(conversion_id)
+# delayed_job worker to run the pdf to html conversion in the background
+class ConversionJob < Struct.new(:conversion_id)
+  def perform
     conversion = Conversion.find(conversion_id)
     begin
       conversion_response = RestClient.post "#{CONVERSION_SERVER}/#{conversion.stripped_document_name}", :data => File.new("#{conversion.document_path}")       

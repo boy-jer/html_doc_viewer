@@ -22,6 +22,6 @@ class Conversion < ActiveRecord::Base
       save_file.write(f.read)
     end
     save_file.close
-    Resque.enqueue(ConversionWorker, self.id) #queue a conversion worker to process the conversion
+    Delayed::Job.enqueue ConversionJob.new(self.id) #queue a conversion job to process the conversion
   end
 end
