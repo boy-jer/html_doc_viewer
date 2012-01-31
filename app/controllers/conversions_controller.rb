@@ -1,6 +1,6 @@
 class ConversionsController < ApplicationController
   before_filter :clear_flash, :only => [:new, :create, :result, :show]
-  before_filter :get_resource, :only => [:result, :show, :fetch_html, :conversion_status]
+  before_filter :get_resource, :only => [:result, :show, :fetch_html, :query_status]
   before_filter :ping_service, :only => [:new, :create]
   layout 'application', :only => [:new, :create, :result, :show]
   
@@ -48,7 +48,7 @@ class ConversionsController < ApplicationController
     redirect_to "#{session[:remote_url]}#{params[:file]}/#{params[:img]}" 
   end
   
-  def conversion_status
+  def query_status
     response = @conversion.converted? ? 'complete' : 'incomplete'
     respond_to do |format| 
       format.html {render :text => response, :status => 200}
@@ -63,7 +63,7 @@ class ConversionsController < ApplicationController
   
   def get_resource
     unless params[:id].blank?
-      @conversion = Conversion.find(params[:id])
+      @conversion = Conversion.find(params[:id]) 
     end
   end
 end

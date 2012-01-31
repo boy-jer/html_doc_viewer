@@ -2,6 +2,7 @@ $(document).ready(function() {
 	
 var loadUrl = $('#page_select').attr('url');
 var pageLimit=$("#page_select").attr("page_count");
+var queryCount = 5;
 
 /* abstraction to deal with a specific page in the doc */
 var documentPage = {
@@ -137,6 +138,43 @@ $("#fullscreen").on("click",function(){
   else{document.documentElement.requestFullScreen();}
 });
 
+
+/* Ping conversion status */
+function queryConversionStatus(query_url, conv_id) {
+	$.ajax({
+		url: query_url,
+		data: {id: conv_id},
+		success: function(resp) {
+			if (resp === 'complete') {
+				return true;
+			}
+			else if (resp == 'incomplete') {
+				return false;
+			}
+		},
+		failure: function(resp) {
+			return false;
+		}
+	});
+}
+
+if ($('#result').find('#conversion_status_url') != undefined) {
+	var status_url = $('#result').find('#conversion_status_url').val();
+	var conv_id = $('#result').find('#conversion_status_url').attr('conv_id');
+	var count = 0;
+	while (count < queryCount) {
+		if (queryConversionStatus(status_url, conv_id)) { 
+			$('#result_spinner').hide();
+			$('#text').hide(); 
+			$('#yay_result').fadeIn(500);
+			return; 
+		}
+		else { count = count + 1; }
+	}
+	$('#result_spinner').hide(); 
+	$('#text').hide(); 
+	$('#boo_result').fadeIn(500);
+};
 
 }); 
 

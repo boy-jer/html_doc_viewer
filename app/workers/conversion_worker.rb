@@ -7,15 +7,16 @@ class ConversionWorker
       conversion_response = RestClient.post "#{CONVERSION_SERVER}/#{conversion.stripped_document_name}", :data => File.new("#{conversion.document_path}")       
       unless conversion_response.blank?
         resp = conversion_response.split(':')
-        self.location = resp[0]
-        self.num_of_pages = resp[1].to_i
-        self.converted = true
+        conversion.location = resp[0]
+        conversion.num_of_pages = resp[1].to_i
+        conversion.converted = true
       else
-        self.converted = false
+        conversion.converted = false
       end
-      conversion.save
     rescue Exception => ex
-      self.converted = false
+      conversion.converted = false
+    ensure
+      conversion.save
     end
   end
 end

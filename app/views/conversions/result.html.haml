@@ -1,15 +1,16 @@
 #result
-  - if @conversion.converted?
-    #yay_result
-      = image_tag 'yay.gif', :size => '300x250'
-      %h2 Your file was successfully uploaded!
-      %br
-      %h3 
-        Click 
-        = link_to 'here', conversion_path(@conversion.id)
-        to view the uploaded file in processed form.
-  - else
-    #boo_result
-      = image_tag 'oops.jpg', :size => '300x250'
-      %h2 Sorry! There was a problem processing the file you uploaded. Please retry later.
-
+  #text
+    %h2 Your file was successfully uploaded! Please hold on while we convert it.
+  #result_spinner
+    = image_tag 'ajax_spinner.gif', :size => '100x100'
+  #yay_result
+    = image_tag 'yay.gif', :size => '300x250'
+    %br
+    %h3 
+      Click 
+      = link_to 'here', conversion_path(@conversion.id)
+      to view the uploaded file in processed form.
+  #boo_result
+    = image_tag 'oops.jpg', :size => '300x250'
+    %h2 Sorry! There was a problem processing the file you uploaded. Please retry later.
+  %input{:id => 'conversion_status_url', :type => 'hidden', :conv_id => @conversion.id, :value => query_status_conversion_url(@conversion.id)}

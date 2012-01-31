@@ -7,7 +7,7 @@ HtmlDocViewer::Application.routes.draw do
     member do
       get 'result'
       get 'fetch_html'
-      get 'conversion_status'
+      get 'query_status'
     end
     collection do
       get 'fetch_image' #purely for testing sake
