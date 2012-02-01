@@ -28,5 +28,5 @@ HtmlDocViewer::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
   
-   Delayed::Worker.logger = Rails.logger
+  Delayed::Worker.logger = Rails.logger
 end
