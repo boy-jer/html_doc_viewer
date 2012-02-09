@@ -6,7 +6,6 @@ gem 'mysql2'
 gem 'haml', '3.1.2'
 gem 'jquery-rails'
 gem 'rest-client'
-gem 'pg'
 gem 'heroku'
 gem 'delayed_job', '~> 2.1.4'
 
@@ -23,6 +22,10 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
+group :production do
+  gem 'pg'
+end
+
 group :test do
   gem 'minitest'
   gem 'turn', :require => false
@@ -30,5 +33,4 @@ group :test do
   gem 'faker', '0.3.1'
   gem 'factory_girl_rails'
   gem 'shoulda-matchers'
-  gem 'resque_unit'
 end

@@ -109,8 +109,6 @@ GEM
       rake
     rdoc (3.11)
       json (~> 1.4)
-    resque_unit (0.4.1)
-      json (>= 1.4.6)
     rest-client (1.6.7)
       mime-types (>= 1.16)
     rspec (2.7.0)
@@ -168,7 +166,6 @@ DEPENDENCIES
   mysql2
   pg
   rails (= 3.1.1)
-  resque_unit
   rest-client
   rspec-rails (~> 2.6)
   sass-rails (~> 3.1.4)
