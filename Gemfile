@@ -8,6 +8,8 @@ gem 'jquery-rails'
 gem 'rest-client'
 gem 'heroku'
 gem 'delayed_job', '~> 2.1.4'
+gem 'execjs'
+gem 'therubyracer'
 
 group :development do
   gem "rspec-rails", "~> 2.6"
