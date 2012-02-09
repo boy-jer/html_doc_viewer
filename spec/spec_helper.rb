@@ -5,7 +5,6 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require 'factory_girl'
 require "#{Rails.root}/lib/assets/stub_response.rb"
-require 'resque_unit'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
